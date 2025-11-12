@@ -37,6 +37,7 @@ static bool Login() {
         }
         LoginCounter--;
         cout << "Incorrect Credentials" << '\n';
+        cout << "Attempts left: " << LoginCounter << endl;
     }
     cout << "Access Denied!" << '\n';
     return false;
