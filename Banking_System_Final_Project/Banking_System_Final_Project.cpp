@@ -65,13 +65,18 @@ static void DepositMoney() {
         }
 
         AccBalance = AccBalance + moneyDeposit;
+        cout << "Updated Balance: " << AccBalance;
         cout << "Deposit Successful" << '\n';
+
         cout << "Do you want to do another transaction(y/n)? ";
         cin >> again;
         if (again == 'Y' || again == 'y') {
             DepositMoney();
         }
         else if (again == 'N' || again == 'n') {
+            return;
+        }
+        else {
             break;
         }
     }
@@ -89,6 +94,7 @@ static void DepositMoney() {
             }
             AccBalance = AccBalance - moneyWithdraw;
             cout << "New Balance: " << AccBalance << endl;
+            cout << "Updated Balance: " << AccBalance;
 
             cout << "Do you want to do another transaction(y/n)? ";
             cin >> again;
@@ -97,6 +103,9 @@ static void DepositMoney() {
 
             }
             else if (again == 'N' || again == 'n') {
+                return;
+            }
+            else {
                 break;
             }
         }
