@@ -56,11 +56,12 @@ static void DepositMoney() {
         if (moneyDeposit <= 0) {
             cout << "Invalid Fund" << '\n';
             cout << "Enter a positive number" << '\n';
+            continue;
         }
         if (moneyDeposit > 500000) {
             cout << "500,000 limit exceeded!" << '\n';
             cout << "Deposit need to be 500,000 below" << '\n';
-
+            continue;
         }
 
         AccBalance = AccBalance + moneyDeposit;
@@ -78,24 +79,26 @@ static void DepositMoney() {
 
     static void WithdrawMoney() {
         double moneyWithdraw;
-        cout << "== Withdraw Money" << '\n';
-        cout << "Withdraw Funds: ";
-        cin >> moneyWithdraw;
-        if (moneyWithdraw > AccBalance) {
-            cout << "Insufficient Funds" << '\n';
-            return;
-        }
-        AccBalance = AccBalance - moneyWithdraw;
-        cout << "New Balance: " << AccBalance << endl; 
+        while (true) {
+            cout << "== Withdraw Money" << '\n';
+            cout << "Withdraw Funds: ";
+            cin >> moneyWithdraw;
+            if (moneyWithdraw > AccBalance) {
+                cout << "Insufficient Funds" << '\n';
+                continue;
+            }
+            AccBalance = AccBalance - moneyWithdraw;
+            cout << "New Balance: " << AccBalance << endl;
 
-        cout << "Do you want to do another transaction(y/n)? ";
-        cin >> again;
-        if (again == 'Y' || again == 'y') {
-            WithdrawMoney();
+            cout << "Do you want to do another transaction(y/n)? ";
+            cin >> again;
+            if (again == 'Y' || again == 'y') {
+                WithdrawMoney();
 
-        }
-        else if (again == 'N' || again == 'n') {
-            return;
+            }
+            else if (again == 'N' || again == 'n') {
+                break;
+            }
         }
     }
     static void MainMenu() {
@@ -137,6 +140,6 @@ int main()
         return false;
     }
     MainMenu();
-
+    return 0;
 }
 
