@@ -1,18 +1,5 @@
 #include <iostream>
 #include <string>
-/*Create new account (sign-up)
-Login with PIN or password
-View account details (name, account number, balance)
- Transactions
-Deposit money
-Withdraw money (with balance check)
-Check balance
-Simple transaction confirmation (Y/N)
-Show last transaction
-Menu System
-Main menu (Deposit, Withdraw, Balance, Exit)
-Input validation (check if user enters invalid input)
-Logout option*/
 using std::cout;
 using std::cin;
 using std::endl;
